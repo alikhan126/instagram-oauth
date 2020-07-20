@@ -75,9 +75,7 @@ if __name__ == "__main__":
             client_id=client_id, client_secret=client_secret,
             redirect_uri=redirect_uri)
     url = client.auth_url(scope=scope)
-    print "Visit this page and grant access: %s" % url
 
     code = raw_input("Paste in code in query string after redirect: ").strip()
     result = client.exchange_code_for_accesstoken(code)
-    print "\nSuccess!\nAccess token: %s\nUser: %s" % (
-            result['access_token'], json.dumps(result['user'], indent=2))
+    print(result['access_token'], json.dumps(result['user']))
